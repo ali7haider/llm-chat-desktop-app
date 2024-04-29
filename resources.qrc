@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/scriptbroken.png</file>
+    <file>images/logo3.png</file>
+    <file>images/icons8-multiply-45.png</file>
+    <file>images/icons8-plus-40.png</file>
+    <file>images/icons8-more-than-20.png</file>
+  </qresource>
+</RCC>
