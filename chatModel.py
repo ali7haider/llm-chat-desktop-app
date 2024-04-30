@@ -13,9 +13,9 @@ class ChatModel:
 
     def generate_response(self, user_question):
         # Create a chat completion by providing messages
+        print("Generating Response...Please Wait!!!")
         response = self.llm.create_chat_completion(
             messages=[
-                {"role": "system", "content": "You are a story writing assistant."},
                 {"role": "user", "content": user_question}
             ]
         )

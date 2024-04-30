@@ -477,7 +477,7 @@ color:white;</string>
              <string notr="true">background-color:#F5F5F5;</string>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="homePage">
              <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -693,84 +693,6 @@ color:#606268;</string>
                         <property name="bottomMargin">
                          <number>0</number>
                         </property>
-                        <item>
-                         <widget class="QFrame" name="AIMessageFrame">
-                          <property name="styleSheet">
-                           <string notr="true">background-color:white;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_15">
-                           <item>
-                            <widget class="QLabel" name="lblMachineName">
-                             <property name="styleSheet">
-                              <string notr="true">color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>Ai</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="lblMachineMessage">
-                             <property name="styleSheet">
-                              <string notr="true">font: 8pt &quot;Roboto&quot;;
-color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</string>
-                             </property>
-                             <property name="wordWrap">
-                              <bool>true</bool>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="UserMessageFrame">
-                          <property name="styleSheet">
-                           <string notr="true">background-color:white;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_16">
-                           <item>
-                            <widget class="QLabel" name="lblUserName">
-                             <property name="styleSheet">
-                              <string notr="true">color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>You</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="lblUserMessage">
-                             <property name="styleSheet">
-                              <string notr="true">font: 8pt &quot;Roboto&quot;;
-color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</string>
-                             </property>
-                             <property name="wordWrap">
-                              <bool>true</bool>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
                        </layout>
                       </widget>
                      </item>
@@ -786,7 +708,7 @@ color:black;</string>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>80</height>
+                  <height>16777215</height>
                  </size>
                 </property>
                 <property name="frameShape">
