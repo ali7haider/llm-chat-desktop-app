@@ -625,6 +625,19 @@ color:#606268;</string>
             <widget class="QWidget" name="chatPage">
              <layout class="QVBoxLayout" name="verticalLayout_12">
               <item>
+               <widget class="QLabel" name="lblQuery">
+                <property name="styleSheet">
+                 <string notr="true">color:black</string>
+                </property>
+                <property name="text">
+                 <string>Send your query!!!</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QFrame" name="frame_4">
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -659,7 +672,7 @@ color:#606268;</string>
                       <x>0</x>
                       <y>0</y>
                       <width>597</width>
-                      <height>585</height>
+                      <height>556</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -1308,8 +1321,8 @@ color:black;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>597</width>
-                      <height>624</height>
+                      <width>206</width>
+                      <height>201</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_35">
@@ -1554,8 +1567,8 @@ color:#343637;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>597</width>
-                      <height>624</height>
+                      <width>265</width>
+                      <height>171</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_41">

@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtCore import Qt, QObject, pyqtSignal, QThread
+from PyQt5.QtCore import Qt, QObject, pyqtSignal, QThread,QTimer
 from PyQt5.QtGui import QMouseEvent, QFont
 from PyQt5 import QtCore, QtGui, QtWidgets
 from main_ui import Ui_MainWindow
@@ -14,13 +14,28 @@ class ChatWorker(QObject):
         self.model = model
 
     def process_question(self, question):
-        print("process_question called")
         try:
             response = self.model.generate_response(question)
             return response
         except Exception as e:
             print("Error:", e)
             self.finished.emit(str(e))
+
+class TimerThread(QThread):
+    timeout_signal = pyqtSignal(str)
+
+    def __init__(self, user_question, worker):
+        super().__init__()
+        self.user_question = user_question
+        self.worker = worker
+
+    def run(self):
+        try:
+            response = self.worker.process_question(self.user_question)
+            self.timeout_signal.emit(response)
+        except Exception as e:
+            print("Error:", e)
+            self.timeout_signal.emit("Error occurred while processing the question.")
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -46,7 +61,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Set a flag to track if the thread has been started
         self.thread_started = False
-        chat_history=[]
+        self.flag=False
+        # Initialize loading_frame to None
+        self.loading_frame = None
 
         # Connect the btnBrowse button to open file dialog
         self.btnClose.clicked.connect(self.close)
@@ -59,24 +76,56 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Connect the sendMessage button to send the message for processing
         self.btnSendMessage.clicked.connect(self.send_message)
 
+
     def send_message(self):
         user_question = self.txtChat.text()
-        self.create_message_frame("You",user_question)
+        print(user_question)
+        self.create_message_frame("You", user_question,True)
+        self.chatScroll.updateGeometry()
+        self.chatScroll.verticalScrollBar().setValue(self.chatScroll.verticalScrollBar().maximum())  # Scroll to the bottom
+        print(self.chatScroll.verticalScrollBar().maximum())  # Print the maximum scroll position
+
         self.txtChat.clear()
-        response=self.worker.process_question(user_question)
+        self.txtChat.setReadOnly(True)
+        if self.flag==False:
+            self.lblQuery.deleteLater() 
+            self.flag=True
+
+
+        # Create a timer thread
+        self.timer_thread = TimerThread(user_question, self.worker)
+        self.timer_thread.timeout_signal.connect(self.on_timer_timeout)
+
+        # Start the timer thread
+        self.timer_thread.start()
+
+    def on_timer_timeout(self, response):
+        # Pass the response to on_response_received method
         self.on_response_received(response)
     def on_response_received(self, response):
+        # Remove leading and trailing spaces from the response
+        response = response.strip()
+
         # Display the response in the chat window
         print("Model response:", response)  # Print the response to the console
-        self.create_message_frame("AI",response)
+        self.create_message_frame("AI", response)
 
-    def create_message_frame(self, sender_name, message):
+        # Remove the loading frame if it exists
+        if self.loading_frame:
+            self.loading_frame.setParent(None)
+
+        self.txtChat.setReadOnly(False)
+        self.chatScroll.updateGeometry()
+        self.chatScroll.verticalScrollBar().setValue(self.chatScroll.verticalScrollBar().maximum())  # Scroll to the bottom
+        print(self.chatScroll.verticalScrollBar().maximum())  # Print the maximum scroll position
+       
+    def create_message_frame(self, sender_name, message, loading=False):
         # Create a new frame for the message
         message_frame = QtWidgets.QFrame()
         message_frame.setStyleSheet("background-color:white;")
         message_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         message_frame.setFrameShadow(QtWidgets.QFrame.Raised)
-         # Set minimum height for the message frame
+        # Set minimum height for the message frame
         message_frame.setMinimumHeight(50)  # Adjust the height as needed
         
         # Create a vertical layout for the message frame
@@ -97,6 +146,42 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Add the message frame to the ChatFrame
         self.chatFrame.layout().addWidget(message_frame)
+
+        if loading:
+            # Create a new frame for the loading label
+            loading_frame = QtWidgets.QFrame()
+            loading_frame.setStyleSheet("background-color: transparent;")
+            loading_frame.setFrameShape(QtWidgets.QFrame.NoFrame)
+
+            # Create a vertical layout for the loading frame
+            loading_layout = QtWidgets.QVBoxLayout(loading_frame)
+            loading_layout.setContentsMargins(0, 0, 0, 0)  # Adjust margins here to reduce space
+
+
+            # Load the image
+            logo_image = QtGui.QPixmap(":/images/images/loading.png")
+
+            # Create a label for the image
+            loading_image_label = QtWidgets.QLabel()
+            loading_image_label.setPixmap(logo_image)
+            loading_image_label.setPixmap(logo_image.scaled(100, 30))  # Set the desired size (64x64)
+
+            loading_image_label.setAlignment(QtCore.Qt.AlignCenter)  # Align the image to the center
+
+            # Add the image label to the loading layout
+            loading_layout.addWidget(loading_image_label)
+
+            # Add the loading frame below the message frame
+            self.chatFrame.layout().addWidget(loading_frame)
+
+            
+
+            # Return the loading frame so it can be removed later
+            self.loading_frame = loading_frame
+
+        return None
+
+
 
         
 
