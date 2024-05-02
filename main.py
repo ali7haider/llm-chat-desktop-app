@@ -1,16 +1,18 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow,QFileDialog
 from PyQt5.QtCore import Qt, QObject, pyqtSignal, QThread,QTimer
 from PyQt5.QtGui import QMouseEvent, QFont
 from PyQt5 import QtCore, QtGui, QtWidgets
 from main_ui import Ui_MainWindow
-from chatModel import ChatModel  # type: ignore # Import the ChatModel class
+from chatModel import ChatModel     
+from database import DatabaseManager
+  # Import create_database from database.py
 
 class ChatWorker(QObject):
     finished = pyqtSignal(str)
 
     def __init__(self, model):
-        super().__init__()
+        super().__init__()  
         self.model = model
 
     def process_question(self, question):
@@ -48,9 +50,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setStyleSheet("background-color: rgba(0, 0, 0, 0);")  # Set background color to transparent
         self.stackedWidget.setCurrentIndex(0)
         self.last_clicked_button=None
-
+        # Call the function to create the database and table
+        self.db_manager = DatabaseManager()
+        self.db_manager.create_database()
         self.resize(550, 800)  # Set the window size to 800x600 pixels
-
+        # Add frames for all models
+        self.add_model_frames()
         # Initialize the chat model
         self.model = ChatModel(model_path="./stablelm-zephyr-3b.Q3_K_S.gguf", chat_format="llama-2")
         self.worker = ChatWorker(self.model)
@@ -58,7 +63,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.worker.moveToThread(self.thread)
         self.thread.started.connect(self.worker.process_question)
         self.worker.finished.connect(self.on_response_received)
-
+        # Connect the btnAddModel button to open file dialog
+        self.btnAddModel.clicked.connect(self.open_file_dialog)
         # Set a flag to track if the thread has been started
         self.thread_started = False
         self.flag=False
@@ -76,10 +82,92 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Connect the sendMessage button to send the message for processing
         self.btnSendMessage.clicked.connect(self.send_message)
 
+    def add_model_frames(self):
+        # Fetch all models from the database
+        models = self.db_manager.fetch_all_models()
+
+        # If models exist, create frames for each model
+        if models:
+            for model in models:
+                frame = self.create_model_frame(model)
+                self.modelFrame.layout().addWidget(frame)
+    def create_model_frame(self, model):
+        # Create the frame for the model message template
+        frame = QtWidgets.QFrame()
+        frame.setStyleSheet("background-color:white;")
+        frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        frame.setFrameShadow(QtWidgets.QFrame.Raised)
+
+        # Create a vertical layout for the frame
+        layout = QtWidgets.QVBoxLayout(frame)
+
+        # Create a frame for the model name and remove button
+        name_frame = QtWidgets.QFrame()
+        name_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        name_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+
+        # Create a horizontal layout for the name frame
+        name_layout = QtWidgets.QHBoxLayout(name_frame)
+        name_layout.setContentsMargins(0, 0, 0, 0)
+
+        # Create a label for the model name
+        lbl_model_name = QtWidgets.QLabel(model[1])  # Assuming model[1] is the title/name
+        lbl_model_name.setStyleSheet("color:black; font: bold 9pt \"Roboto Black\";")
+        lbl_model_name.setWordWrap(True)  # Enable word wrap for the title
+
+        name_layout.addWidget(lbl_model_name)
+
+        # Add spacing between the name and remove button
+        name_layout.addSpacing(10)
+
+        # Create a button to remove the model
+        btn_remove = QtWidgets.QPushButton("Remove")
+        btn_remove.setMaximumSize(QtCore.QSize(55, 22))
+        btn_remove.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        btn_remove.setStyleSheet("color:#606268; font: 8pt \"Roboto\";")
+        btn_remove.setFlat(True)
+        name_layout.addWidget(btn_remove, 0, QtCore.Qt.AlignRight)
+
+        # Add the name frame to the vertical layout
+        layout.addWidget(name_frame)
+
+        # Create a label for the model path
+        lbl_model_path = QtWidgets.QLabel("Path: " + model[2])  # Assuming model[2] is the path
+        lbl_model_path.setStyleSheet("font: 8pt \"Roboto\"; color:black;")
+        lbl_model_path.setWordWrap(True)  # Enable word wrap for the title
+
+        layout.addWidget(lbl_model_path)
+
+        return frame
+
+
+    def open_file_dialog(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+
+        # Create a QFileDialog instance with the file filter for .gguf files
+        file_dialog = QFileDialog(self, "Select Model File", "", "Model Files (*.gguf)", options=options)
+
+        # Set the background color to white
+        file_dialog.setStyleSheet("background-color: white;")
+
+        # Set the file mode to existing files
+        file_dialog.setFileMode(QFileDialog.ExistingFile)
+
+        # Get the selected file name and path
+        file_name, _ = file_dialog.getOpenFileName()
+
+        if file_name:
+            # Extract the file name and path
+            file_path = file_name
+            file_name = file_name.split('/')[-1]  # Get just the file name
+
+            # Insert the file name and path into the Model table
+            self.db_manager.insert_model(file_name, file_path)
+
 
     def send_message(self):
         user_question = self.txtChat.text()
-        print(user_question)
         self.create_message_frame("You", user_question,True)
         self.chatScroll.updateGeometry()
         self.chatScroll.verticalScrollBar().setValue(self.chatScroll.verticalScrollBar().maximum())  # Scroll to the bottom
@@ -164,7 +252,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             # Create a label for the image
             loading_image_label = QtWidgets.QLabel()
             loading_image_label.setPixmap(logo_image)
-            loading_image_label.setPixmap(logo_image.scaled(100, 30))  # Set the desired size (64x64)
+            loading_image_label.setPixmap(logo_image.scaled(100, 20))  # Set the desired size (64x64)
 
             loading_image_label.setAlignment(QtCore.Qt.AlignCenter)  # Align the image to the center
 

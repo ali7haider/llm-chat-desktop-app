@@ -477,7 +477,7 @@ color:white;</string>
              <string notr="true">background-color:#F5F5F5;</string>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>4</number>
             </property>
             <widget class="QWidget" name="homePage">
              <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1567,8 +1567,8 @@ color:#343637;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>265</width>
-                      <height>171</height>
+                      <width>597</width>
+                      <height>624</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_41">
@@ -1602,131 +1602,44 @@ color:#343637;
                         <property name="bottomMargin">
                          <number>20</number>
                         </property>
-                        <item>
-                         <widget class="QFrame" name="modelMessageTemplate">
-                          <property name="styleSheet">
-                           <string notr="true">background-color:white;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_43">
-                           <item>
-                            <widget class="QFrame" name="frame_23">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_17">
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                              <item>
-                               <widget class="QLabel" name="lblModelName">
-                                <property name="styleSheet">
-                                 <string notr="true">color:black;
-font: 87 9pt &quot;Roboto Black&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>StableLM Zephyr 3B - GGUF</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item alignment="Qt::AlignRight">
-                               <widget class="QPushButton" name="btnModelRemove">
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>55</width>
-                                  <height>22</height>
-                                 </size>
-                                </property>
-                                <property name="cursor">
-                                 <cursorShape>PointingHandCursor</cursorShape>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">color:#606268;
-font: 8pt &quot;Roboto&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>Remove</string>
-                                </property>
-                                <property name="flat">
-                                 <bool>true</bool>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="lblModelMessage">
-                             <property name="styleSheet">
-                              <string notr="true">font: 8pt &quot;Roboto&quot;;
-color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>Elevate your writing instantly with Script Sage, utilizing the power of your...</string>
-                             </property>
-                             <property name="wordWrap">
-                              <bool>true</bool>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="btnAddModel">
-                          <property name="minimumSize">
-                           <size>
-                            <width>20</width>
-                            <height>0</height>
-                           </size>
-                          </property>
-                          <property name="cursor">
-                           <cursorShape>PointingHandCursor</cursorShape>
-                          </property>
-                          <property name="layoutDirection">
-                           <enum>Qt::RightToLeft</enum>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">background:#F5F5F5;
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btnAddModel">
+                       <property name="minimumSize">
+                        <size>
+                         <width>20</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="layoutDirection">
+                        <enum>Qt::RightToLeft</enum>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background:#F5F5F5;
 border:2px solid #606268;
 padding:4px;
 font:  9pt &quot;Roboto&quot;;
 color:#343637;
 </string>
-                          </property>
-                          <property name="text">
-                           <string>Add Model                                                                                                </string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="resources.qrc">
-                            <normaloff>:/images/images/icons8-plus-40.png</normaloff>:/images/images/icons8-plus-40.png</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
+                       </property>
+                       <property name="text">
+                        <string>Add Model                                                                                                </string>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="resources.qrc">
+                         <normaloff>:/images/images/icons8-plus-40.png</normaloff>:/images/images/icons8-plus-40.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>25</width>
+                         <height>25</height>
+                        </size>
+                       </property>
                       </widget>
                      </item>
                     </layout>
