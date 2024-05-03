@@ -278,7 +278,7 @@ QLineEdit {
 color:white;</string>
                    </property>
                    <property name="text">
-                    <string>StableLM Zephyr 3B - GGUF</string>
+                    <string>No Model Selected</string>
                    </property>
                    <property name="autoDefault">
                     <bool>false</bool>
@@ -477,7 +477,7 @@ color:white;</string>
              <string notr="true">background-color:#F5F5F5;</string>
             </property>
             <property name="currentIndex">
-             <number>4</number>
+             <number>6</number>
             </property>
             <widget class="QWidget" name="homePage">
              <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -883,396 +883,6 @@ border-left:none;</string>
                         <property name="bottomMargin">
                          <number>0</number>
                         </property>
-                        <item>
-                         <widget class="QFrame" name="historyMessageTemplateFrame">
-                          <property name="styleSheet">
-                           <string notr="true">background-color:white;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_23">
-                           <item>
-                            <widget class="QFrame" name="frame">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_7">
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                              <item>
-                               <widget class="QLabel" name="lblHistoryChatName">
-                                <property name="styleSheet">
-                                 <string notr="true">color:black;
-font: 87 9pt &quot;Roboto Black&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>Chat</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="lblHistoyChatDate">
-                                <property name="styleSheet">
-                                 <string notr="true">color:#606268;
-font: 8pt &quot;Roboto&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>04/18/2024</string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="lblHistoryChatMessage">
-                             <property name="styleSheet">
-                              <string notr="true">font: 8pt &quot;Roboto&quot;;
-color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>It is a long established fact that a reader will be distracted by the readable ...</string>
-                             </property>
-                             <property name="wordWrap">
-                              <bool>true</bool>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="historyMessageTemplateFrame_3">
-                          <property name="styleSheet">
-                           <string notr="true">background-color:white;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_26">
-                           <item>
-                            <widget class="QFrame" name="frame_14">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_8">
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                              <item>
-                               <widget class="QLabel" name="lblHistoryChatName_3">
-                                <property name="styleSheet">
-                                 <string notr="true">color:black;
-font: 87 9pt &quot;Roboto Black&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>Plugin: Script Sage Writing </string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="lblHistoyChatDate_3">
-                                <property name="styleSheet">
-                                 <string notr="true">color:#606268;
-font: 8pt &quot;Roboto&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>04/18/2024</string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="lblHistoryChatMessage_5">
-                             <property name="styleSheet">
-                              <string notr="true">font: 8pt &quot;Roboto&quot;;
-color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>It is a long established fact that a reader will be distracted by the readable ...</string>
-                             </property>
-                             <property name="wordWrap">
-                              <bool>true</bool>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="historyMessageTemplateFrame_4">
-                          <property name="styleSheet">
-                           <string notr="true">background-color:white;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_28">
-                           <item>
-                            <widget class="QFrame" name="frame_15">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_9">
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                              <item>
-                               <widget class="QLabel" name="lblHistoryChatName_4">
-                                <property name="styleSheet">
-                                 <string notr="true">color:black;
-font: 87 9pt &quot;Roboto Black&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>Plugin: Script Sage Writing </string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="lblHistoyChatDate_4">
-                                <property name="styleSheet">
-                                 <string notr="true">color:#606268;
-font: 8pt &quot;Roboto&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>04/18/2024</string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="lblHistoryChatMessage_3">
-                             <property name="styleSheet">
-                              <string notr="true">font: 8pt &quot;Roboto&quot;;
-color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>It is a long established fact that a reader will be distracted by the readable ...</string>
-                             </property>
-                             <property name="wordWrap">
-                              <bool>true</bool>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="historyMessageTemplateFrame_5">
-                          <property name="styleSheet">
-                           <string notr="true">background-color:white;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_29">
-                           <item>
-                            <widget class="QFrame" name="frame_16">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_10">
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                              <item>
-                               <widget class="QLabel" name="lblHistoryChatName_5">
-                                <property name="styleSheet">
-                                 <string notr="true">color:black;
-font: 87 9pt &quot;Roboto Black&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>Plugin: Script Sage Writing </string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="lblHistoyChatDate_5">
-                                <property name="styleSheet">
-                                 <string notr="true">color:#606268;
-font: 8pt &quot;Roboto&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>04/18/2024</string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="lblHistoryChatMessage_4">
-                             <property name="styleSheet">
-                              <string notr="true">font: 8pt &quot;Roboto&quot;;
-color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>It is a long established fact that a reader will be distracted by the readable ...</string>
-                             </property>
-                             <property name="wordWrap">
-                              <bool>true</bool>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="historyMessageTemplateFrame_2">
-                          <property name="styleSheet">
-                           <string notr="true">background-color:white;</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_24">
-                           <item>
-                            <widget class="QFrame" name="frame_17">
-                             <property name="frameShape">
-                              <enum>QFrame::StyledPanel</enum>
-                             </property>
-                             <property name="frameShadow">
-                              <enum>QFrame::Raised</enum>
-                             </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_11">
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                              <item>
-                               <widget class="QLabel" name="lblHistoryChatName_2">
-                                <property name="styleSheet">
-                                 <string notr="true">color:black;
-font: 87 9pt &quot;Roboto Black&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>Plugin: Script Sage Writing </string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="lblHistoyChatDate_2">
-                                <property name="styleSheet">
-                                 <string notr="true">color:#606268;
-font: 8pt &quot;Roboto&quot;;</string>
-                                </property>
-                                <property name="text">
-                                 <string>04/18/2024</string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLabel" name="lblHistoryChatMessage_2">
-                             <property name="styleSheet">
-                              <string notr="true">font: 8pt &quot;Roboto&quot;;
-color:black;</string>
-                             </property>
-                             <property name="text">
-                              <string>It is a long established fact that a reader will be distracted by the readable ...</string>
-                             </property>
-                             <property name="wordWrap">
-                              <bool>true</bool>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
                        </layout>
                       </widget>
                      </item>
@@ -1321,8 +931,8 @@ color:black;</string>
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>206</width>
-                      <height>201</height>
+                      <width>597</width>
+                      <height>624</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_35">
@@ -1766,6 +1376,89 @@ font: 8pt &quot;Roboto&quot;;</string>
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="SpecificHistoryPage">
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QFrame" name="frame_14">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_23">
+                 <property name="leftMargin">
+                  <number>10</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>10</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QScrollArea" name="specifcHistoryScroll">
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="historyScrollAreaFrame_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>597</width>
+                      <height>624</height>
+                     </rect>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_24">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <item alignment="Qt::AlignTop">
+                      <widget class="QFrame" name="specificHistoryFrame">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_25">
+                        <property name="spacing">
+                         <number>15</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
