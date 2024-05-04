@@ -365,7 +365,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         response = response.strip()
 
         # Display the response in the chat window
-        print("Model response:", response)  # Print the response to the console
         session_id = self.db_manager.get_or_create_session_id()
         timestamp = datetime.datetime.now()
         
@@ -452,33 +451,34 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             loading_frame.setStyleSheet("background-color: transparent;")
             loading_frame.setFrameShape(QtWidgets.QFrame.NoFrame)
 
+
             # Create a vertical layout for the loading frame
             loading_layout = QtWidgets.QVBoxLayout(loading_frame)
             loading_layout.setContentsMargins(0, 0, 0, 0)  # Adjust margins here to reduce space
 
+            # Load the GIF animation
+            loading_movie = QtGui.QMovie(":/images/images/loading.gif")
 
-            # Load the image
-            logo_image = QtGui.QPixmap(":/images/images/loading.png")
+            # Create a label for the movie
+            loading_movie_label = QtWidgets.QLabel()
+            loading_movie_label.setMovie(loading_movie)
 
-            # Create a label for the image
-            loading_image_label = QtWidgets.QLabel()
-            loading_image_label.setPixmap(logo_image)
-            loading_image_label.setPixmap(logo_image.scaled(100, 20))  # Set the desired size (64x64)
+            # Start the GIF animation
+            loading_movie.start()
 
-            loading_image_label.setAlignment(QtCore.Qt.AlignCenter)  # Align the image to the center
-
-            # Add the image label to the loading layout
-            loading_layout.addWidget(loading_image_label)
+            # Add the movie label to the loading layout
+            loading_layout.addWidget(loading_movie_label)
+            loading_layout.setAlignment(Qt.AlignCenter) 
 
             # Add the loading frame below the message frame
             self.chatFrame.layout().addWidget(loading_frame)
 
-            
-
             # Return the loading frame so it can be removed later
-            self.loading_frame = loading_frame
+            self.loading_frame=loading_frame
+
 
         return None
+
 
 
 

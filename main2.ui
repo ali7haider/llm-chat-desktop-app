@@ -477,7 +477,7 @@ color:white;</string>
              <string notr="true">background-color:#F5F5F5;</string>
             </property>
             <property name="currentIndex">
-             <number>6</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="homePage">
              <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -748,6 +748,18 @@ color:#606268;</string>
                  </property>
                  <item>
                   <widget class="QLineEdit" name="txtChat">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>32</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>32</height>
+                    </size>
+                   </property>
                    <property name="styleSheet">
                     <string notr="true">background:#F5F5F5;
 border:2px solid #606268;

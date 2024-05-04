@@ -319,6 +319,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.txtChat = QtWidgets.QLineEdit(self.chatArea)
+        self.txtChat.setMinimumSize(QtCore.QSize(0, 32))
+        self.txtChat.setMaximumSize(QtCore.QSize(16777215, 32))
         self.txtChat.setStyleSheet("background:#F5F5F5;\n"
 "border:2px solid #606268;\n"
 "padding:4px;\n"
@@ -617,7 +619,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
